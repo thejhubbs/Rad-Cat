@@ -1,0 +1,121 @@
+
+//================
+//----Set Settings---
+//
+@settings: extract(@themes, 8);
+//
+@set-main-color: extract(@settings, 1);
+//
+//<5 only 1 color, 1 shade //5 is 1 color & 2 shades //>5 is 2 colors & 1 shade
+//10 is 3 colors (closer to main) //15  is 3 colors (closer to secondary)
+@color-contrast: extract(@settings, 2);
+//Apparent on 1-10 (0-11)
+@color-saturation: extract(@settings, 3);
+@lightness: extract(@settings, 4);
+@lightness-contrast: extract(@settings, 5);
+//Fine tune the hue, negative to reverse the hue direction
+@secondary-direction: extract(@settings, 6);
+@highlight-direction: extract(@settings, 7);
+
+//================
+@set-secondary-color: spin(@set-main-color, (@secondary-direction * 18 * @color-contrast));
+@set-highlight-color: spin(@set-main-color, (@highlight-direction * 3 * @color-contrast));
+//================
+
+//Override colors here (still affected by lightness & saturation)
+//@set-secondary-color: #fff;
+
+//=============
+@main-color: saturate( shade(@set-main-color, -3*(@lightness - 5)) , 3*(@color-saturation - 5));
+@secondary-color: saturate( shade(@set-secondary-color, -3*(@lightness - 7)), 3*(@color-saturation - 5));
+@highlight-color: saturate( shade(@set-highlight-color, -5*(@lightness - 10)) , 5 * @color-saturation);
+@dark-color: saturate( lighten(@main-color, 8 * (@lightness - @lightness-contrast - 5)), 3*(@color-saturation - 5));
+@light-color: saturate( lighten(@main-color, 8 * (@lightness + @lightness-contrast - 5)), 3*(@color-saturation - 5));
+@grey-color:   desaturate( lighten(@main-color, @lightness - 5) , 6*(@color-saturation - 1)) ;
+@cancel-color: mix(red, @main-color);
+@confirm-color: mix(green, @main-color);
+//===============
+
+//Override any colors here for a hard override (no saturation & lightness settings)
+//@secondary-color: #fff;
+
+// ========================================= 
+//Light/dark/transparent variations
+//===========================================*/
+//Full Colors SET HERE 
+
+@opacity: 30%;
+@opacity-clearer: 45%;
+@opacity-clearest: 70%;
+
+@clear-main-color: fadeout(@main-color, @opacity);
+@clear-secondary-color: fadeout(@secondary-color, @opacity);
+@clear-highlight-color: fadeout(@highlight-color, @opacity);
+@clear-dark-color: fadeout(@dark-color, @opacity);
+@clear-light-color: fadeout(@light-color, @opacity);
+@clear-grey-color: fadeout(@grey-color, @opacity);
+
+@clearer-main-color: fadeout(@main-color, @opacity-clearer);
+@clearer-secondary-color: fadeout(@secondary-color, @opacity-clearer);
+@clearer-highlight-color: fadeout(@highlight-color, @opacity-clearer);
+@clearer-dark-color: fadeout(@dark-color, @opacity-clearer);
+@clearer-light-color: fadeout(@light-color, @opacity-clearer);
+@clearer-grey-color: fadeout(@grey-color, @opacity-clearer);
+
+@clearest-main-color: fadeout(@main-color, @opacity-clearest);
+@clearest-secondary-color: fadeout(@secondary-color, @opacity-clearest);
+@clearest-highlight-color: fadeout(@highlight-color, @opacity-clearest);
+@clearest-dark-color: fadeout(@dark-color, @opacity-clearest);
+@clearest-light-color: fadeout(@light-color, @opacity-clearest);
+@clearest-grey-color: fadeout(@grey-color, @opacity-clearest);
+
+@amount: 3 * (@lightness + @lightness-contrast - 5);
+
+@dark-main-color: darken(@main-color, @amount);
+@dark-secondary-color: darken(@secondary-color, @amount);
+@dark-highlight-color: darken(@highlight-color, @amount);
+@dark-dark-color: darken(@dark-color, @amount);
+@dark-light-color: darken(@light-color, @amount);
+@dark-grey-color: darken(@grey-color, @amount);
+
+@darker-main-color: darken(@main-color, @amount  * 2);
+@darker-secondary-color: darken(@secondary-color, @amount  * 2);
+@darker-highlight-color: darken(@highlight-color, @amount  * 2);
+@darker-dark-color: darken(@dark-color, @amount  * 2);
+@darker-light-color: darken(@light-color, @amount  * 2);
+@darker-grey-color: darken(@grey-color, @amount  * 2);
+
+@darkest-main-color: darken(@main-color, @amount  * 3);
+@darkest-secondary-color: darken(@secondary-color, @amount  * 3);
+@darkest-highlight-color: darken(@highlight-color, @amount  * 3);
+@darkest-dark-color: darken(@dark-color, @amount  * 3);
+@darkest-light-color: darken(@light-color, @amount  * 3);
+@darkest-grey-color: darken(@grey-color, @amount  * 3);
+
+@light-main-color: lighten(@main-color, @amount );
+@light-secondary-color: lighten(@secondary-color, @amount );
+@light-highlight-color: lighten(@highlight-color, @amount );
+@light-dark-color: lighten(@dark-color, @amount );
+@light-light-color: lighten(@light-color, @amount );
+@light-grey-color: lighten(@grey-color, @amount );
+
+@lighter-main-color: lighten(@main-color, @amount *2);
+@lighter-secondary-color: lighten(@secondary-color, @amount *2);
+@lighter-highlight-color: lighten(@highlight-color, @amount *2);
+@lighter-dark-color: lighten(@dark-color, @amount *2);
+@lighter-light-color: lighten(@light-color, @amount *2);
+@lighter-grey-color: lighten(@grey-color, @amount *2);
+
+@lightest-main-color: lighten(@main-color, @amount *3);
+@lightest-secondary-color: lighten(@secondary-color, @amount *3);
+@lightest-highlight-color: lighten(@highlight-color, @amount *3);
+@lightest-dark-color: lighten(@dark-color, @amount *3);
+@lightest-light-color: lighten(@light-color, @amount *3);
+@lightest-grey-color: lighten(@grey-color, @amount *3);
+
+@grey-main-color: desaturate(@main-color, @amount );
+@grey-secondary-color: desaturate(@secondary-color, @amount );
+@grey-highlight-color: desaturate(@highlight-color, @amount );
+@grey-dark-color: desaturate(@dark-color, @amount );
+@grey-light-color: desaturate(@light-color, @amount );
+@grey-grey-color: desaturate(@grey-color, @amount );

@@ -1,0 +1,29 @@
+
+//sm-hidden hides on mobile and below
+.sm-hidden {@media @small {display:none !important;} }
+//Md-hidden hides on tablet & higher sizes
+.md-hidden {@media @medium {display:none !important;} }
+//Lg-hidden hides on desktop & larger sizes
+.lg-hidden {@media @large {display:none !important;} }
+
+//For targeting and hiding specific views
+.watch-hidden {@media @watch {display:none !important;} }
+.mobile-hidden {@media @mobile {display:none !important;} }
+.tablet-hidden {@media @tablet {display:none !important;} }
+.desktop-hidden {@media @desktop {display:none !important;} }
+.tv-hidden {@media @tv {display:none !important;} }
+
+
+//Allows mobile & watch views
+.sm-only { .md-hidden(); }
+//Only show on tablet & larger views
+.md-only { .sm-hidden(); }
+//Only show on desktop & above views
+.lg-only { .sm-hidden(); .tablet-hidden(); }
+
+//For showing on only a specific device size
+.watch-only { .sm-only(); .mobile-hidden(); }
+.mobile-only { .sm-only(); .watch-hidden(); }
+.tablet-only { .md-only(); .lg-hidden(); }
+.desktop-only { .lg-only(); .tv-hidden(); }
+.tv-only { .lg-only(); .desktop-hidden(); }

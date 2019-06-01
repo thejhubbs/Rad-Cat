@@ -1,0 +1,49 @@
+//***************************
+//      BUTTONS
+//*************************** 
+.button-double(@color, @background) {
+    display: inline-block;
+    text-decoration: none;
+	width: 100%;
+	margin: 10px 0;
+	@media @desktop {
+		width: auto; 
+		margin: 5px;
+	}
+	padding: 14px 36px;
+    border-radius: @default-border-radius;
+    
+    border: 8px double lighten(@background, 30%);
+    color: @color;
+    background-color: @background;
+    
+    &:hover {
+        border: 8px outset @background;
+        color: @background;
+        background: none;
+        
+    }
+
+}
+
+//Double declarations for specificity on anchor tag.
+a.default-button-double-button {
+	.button-double(@default-button-text-color, @default-button-bg-color);
+}
+
+a.primary-button-double-button  {
+    .button-double(@primary-button-text-color, @primary-button-bg-color);
+}
+
+a.secondary-button-double-button  {
+    .button-double(@secondary-button-text-color, @secondary-button-bg-color);
+}
+
+a.cancel-button-double-button  {
+    .button-double(@cancel-button-text-color, @cancel-button-bg-color);
+}
+
+a.confirm-button-double-button  {
+    .button-double(@confirm-button-text-color, @confirm-button-bg-color);
+}
+

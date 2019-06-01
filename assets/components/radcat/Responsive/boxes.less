@@ -1,0 +1,49 @@
+//DEFAULT BOXES
+// Defines .box-1, .box-2, ... .box-12
+// As well as .box-mobile-x, .box-tablet-x, and .box-desktop-x.
+//Multiple loops necessary for cascading rules
+each(range(12), {
+	@num: 13-@index;
+    @percent: floor(@num/12*100);
+    .box-@{num} { width: ~"@{percent}%"; }
+});
+each(range(12), {
+	@num: 13-@index;
+    @percent: floor(@num/12*100);
+    .box-sm-@{num} { @media @small { width: ~"@{percent}%"; } }
+});
+each(range(12), {
+	@num: 13-@index;
+    @percent: floor(@num/12*100);
+    .box-md-@{num} { @media @medium { width: ~"@{percent}%"; } }
+});
+each(range(12), {
+	@num: 13-@index;
+    @percent: floor(@num/12*100);
+    .box-lg-@{num} { @media @large { width: ~"@{percent}%"; } }
+});
+each(range(12), {
+	@num: 13-@index;
+    @percent: floor(@num/12*100);
+	.box-watch-@{num} { @media @watch { width: ~"@{percent}%"; } }    
+});
+each(range(12), {
+	@num: 13-@index;
+    @percent: floor(@num/12*100);
+	.box-mobile-@{num} { @media @mobile { width: ~"@{percent}%"; } }    
+});
+each(range(12), {
+	@num: 13-@index;
+    @percent: floor(@num/12*100);
+	 .box-tablet-@{num} { @media @tablet { width: ~"@{percent}%"; } }    
+});
+each(range(12), {
+	@num: 13-@index;
+    @percent: floor(@num/12*100);
+	.box-desktop-@{num} { @media @desktop { width: ~"@{percent}%"; } }
+});
+each(range(12), {
+	@num: 13-@index;
+    @percent: floor(@num/12*100);
+	.box-tv-@{num} { @media @tv { width: ~"@{percent}%"; } }    
+});

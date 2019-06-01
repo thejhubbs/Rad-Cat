@@ -1,0 +1,18 @@
+@watch-size: 320px;
+@mobile-size: 700px;
+@desktop-size: 1000px;
+@tv-size: 1600px;
+
+//Applies to watch & mobile sizes
+@small: ~"screen and (max-width: @{mobile-size})";
+//Applies to tablet & larger sizes
+@medium: ~"screen and (min-width: @{mobile-size})";
+//Applies to desktop & larger sizes
+@large: ~"screen and (min-width: @{desktop-size})";
+
+//Individual breakpoints
+@watch: ~"screen and (max-width: @{watch-size})"; 
+@mobile: ~"screen and (min-width: @{watch-size}) and (max-width: @{mobile-size})";
+@tablet: ~"screen and (min-width: @{mobile-size}) and (max-width: @{desktop-size})";
+@desktop: ~"screen and (min-width: @{desktop-size}) and (max-width: @{tv-size})";
+@tv: ~"screen and (min-width: @{tv-size})";

@@ -1,0 +1,43 @@
+//Medium & pops out
+.shaped-divider {
+    border-bottom: 4px groove @secondary-color;
+    height:12px;
+    border-top:4px ridge @light-secondary-color;
+    background-color:@light-secondary-color;
+}
+
+.reverse-shaped-divider {
+    border-top: 4px groove @light-highlight-color;
+    height:12px;
+    border-bottom:4px ridge @highlight-color;
+    background-color:@light-highlight-color;
+}
+
+//Thin and smooth
+.plain-divider {
+    height:6px;
+    background-color:@main-color;
+    border-bottom: 2px solid @highlight-color;
+    border-top: 2px solid @light-main-color;
+}
+
+.reverse-plain-divider {
+    height:6px;
+    background-color:@main-color;
+    border-top: 2px solid @highlight-color;
+    border-bottom: 2px solid @light-main-color;
+}
+
+//Large and interesting
+.theme-divider {
+    height:18px;
+    background-color:@main-color;
+    border-top:6px double @highlight-color;
+    border-bottom:8px solid @secondary-color;
+}
+.reverse-theme-divider {
+    height:18px;
+    background-color:@main-color;
+    border-bottom:6px double @highlight-color;
+    border-top:8px solid @secondary-color;
+}

@@ -1,0 +1,35 @@
+//Make your choices!
+@import "./buttons/button-solid.less";
+@import "./forms/forms-border.less";
+@import './dividers/dividers.less';
+@import './extras/extras.less';
+
+
+.primary-button-type(@c1, @c2) {
+    .button-solid(@c1, @c2);
+}
+
+.divider {
+    .theme-divider;
+}
+.reverse-divider {
+    .reverse-theme-divider;
+}
+
+
+input[type=submit].default-button, button.default-button, a.default-button {
+    .primary-button-type(@default-button-text-color, @default-button-bg-color);
+}
+input[type=submit].primary-button, button.primary-button, a.primary-button {
+    .primary-button-type(@primary-button-text-color, @primary-button-bg-color);
+}
+input[type=submit].secondary-button, button.secondary-button, a.secondary-button {
+    .primary-button-type(@secondary-button-text-color, @secondary-button-bg-color);
+}
+input[type=submit].cancel-button, button.cancel-button, a.cancel-button {
+    .primary-button-type(@cancel-button-text-color, @cancel-button-bg-color);
+}
+input[type=submit].confirm-button, button.confirm-button, a.confirm-button {
+    .primary-button-type(@confirm-button-text-color, @confirm-button-bg-color);
+}
+
