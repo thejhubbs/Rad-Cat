@@ -2,7 +2,7 @@
 //================
 //----Set Settings---
 //
-@settings: extract(@themes, 8);
+@settings: extract(@themes, 16);
 //
 @set-main-color: extract(@settings, 1);
 //
@@ -27,11 +27,11 @@
 
 //=============
 @main-color: saturate( shade(@set-main-color, -3*(@lightness - 5)) , 3*(@color-saturation - 5));
-@secondary-color: saturate( shade(@set-secondary-color, -3*(@lightness - 7)), 3*(@color-saturation - 5));
+@secondary-color: saturate( shade(@set-secondary-color, -3*(@lightness - 11)), 3*(@color-saturation - 5));
 @highlight-color: saturate( shade(@set-highlight-color, -5*(@lightness - 10)) , 5 * @color-saturation);
-@dark-color: saturate( lighten(@main-color, 8 * (@lightness - @lightness-contrast - 5)), 3*(@color-saturation - 5));
-@light-color: saturate( lighten(@main-color, 8 * (@lightness + @lightness-contrast - 5)), 3*(@color-saturation - 5));
-@grey-color:   desaturate( lighten(@main-color, @lightness - 5) , 6*(@color-saturation - 1)) ;
+@dark-color: saturate( lighten(@main-color, 8 * (@lightness - @lightness-contrast - 7)), 4*(@color-saturation - 11));
+@light-color: saturate( lighten(@main-color, 5 * (@lightness + @lightness-contrast - 5)), 4*(@color-saturation - 11));
+@grey-color:   desaturate( lighten(@main-color, @lightness - 5) , 6*(@color-saturation)) ;
 @cancel-color: mix(red, @main-color);
 @confirm-color: mix(green, @main-color);
 //===============
@@ -42,8 +42,6 @@
 // ========================================= 
 //Light/dark/transparent variations
 //===========================================*/
-//Full Colors SET HERE 
-
 @opacity: 30%;
 @opacity-clearer: 45%;
 @opacity-clearest: 70%;
@@ -69,7 +67,7 @@
 @clearest-light-color: fadeout(@light-color, @opacity-clearest);
 @clearest-grey-color: fadeout(@grey-color, @opacity-clearest);
 
-@amount: 3 * (@lightness + @lightness-contrast - 5);
+@amount: (@lightness + @lightness-contrast);
 
 @dark-main-color: darken(@main-color, @amount);
 @dark-secondary-color: darken(@secondary-color, @amount);

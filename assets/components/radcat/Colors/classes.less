@@ -1,4 +1,6 @@
 body {background:@light-color;}
+.default-border-radius { border-radius: @default-border-radius; }
+.default-border { border: @default-border; border-radius: @default-border-radius; }
 
 .main-color { color: @main-color }
 .secondary-color { color: @secondary-color }
@@ -8,6 +10,7 @@ body {background:@light-color;}
 .grey-color { color: @grey-color }
 .cancel-color { color: @cancel-color }
 .confirm-color { color: @confirm-color }
+.transparent-color {color: transparent; }
 
 .main-background { background-color: @main-color }
 .secondary-background { background-color: @secondary-color }
@@ -17,8 +20,7 @@ body {background:@light-color;}
 .grey-background { background-color: @grey-color }
 .cancel-background { background-color: @cancel-color }
 .confirm-background { background-color: @confirm-color }
-
-.default-border { border: @default-border; border-radius: @default-border-radius; }
+.transparent-background { background-color: transparent; }
 
 .main-border { .default-border; border-color: @main-color }
 .secondary-border { .default-border; border-color: @secondary-color }
@@ -28,6 +30,7 @@ body {background:@light-color;}
 .grey-border { .default-border; border-color: @grey-color }
 .cancel-border { .default-border; border-color: @cancel-color }
 .confirm-border { .default-border; border-color: @confirm-color }
+.transparent-border { .default-border; border-color: transparent }
 
 .main-underline { text-decoration:underline;text-decoration-color: @main-color }
 .secondary-underline { text-decoration:underline;text-decoration-color: @secondary-color }
@@ -37,3 +40,4 @@ body {background:@light-color;}
 .grey-underline { text-decoration:underline;text-decoration-color: @grey-color }
 .cancel-underline { text-decoration:underline;text-decoration-color: @cancel-color }
 .confirm-underline { text-decoration:underline;text-decoration-color: @confirm-color }
+.transparent-underline { text-decoration-color: transparent; }
